@@ -18,9 +18,13 @@ echo<?php code ?>
 * 双引号串中的内容可以被解释而且替换，而单引号串中的内容总被认为是普通字符。
 * 例如：
 > $foo = 2; 
+
 > echo "foo is $foo"; // 打印结果: foo is 2 
+
 > echo 'foo is $foo'; // 打印结果: foo is $foo
+
 > echo "foo is $foo\n"; // 打印结果: foo is 2 (同时换行) 
+
 > echo 'foo is $foo\n'; // 打印结果: foo is $foo\n)
 
 php的变量类型 有八个 三大类型
