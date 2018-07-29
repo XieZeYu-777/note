@@ -82,12 +82,12 @@ echo ‘<h1>my name is {$arr['name']},my age is {$ar['age']....}’
 
 ```php对象的定义
 class Person{
-  public $name ='user'
-  public $age ='20'
-  public $sex ='boy'	
-  public function say () {
-	echo 'my name is {$this-> name}'
-}
+ public $name ='user'
+	  public $age ='20'
+	  public $sex ='boy'	
+	  public function say () {
+		echo 'my name is {$this-> name}'
+	}
 }
 $a = new Person()
 echo $a->age = 20
