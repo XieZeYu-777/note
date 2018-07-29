@@ -1,27 +1,27 @@
 2018年2月20日星期二
 
-####Php知识点
+#### Php知识点
 基础
-#标签:
-```
+# 标签:
+``` php标签
 <?php code ?> 
 ```
 输出语句echo
 变量定义前面要加$ （例如$a = 10）
 连接变量{$xx} 也可以用点.
 在html里显示
-```
+```php输出语句
 echo<?php code ?>
 ```
 
-单双引号的区别
-双引号串中的内容可以被解释而且替换，而单引号串中的内容总被认为是普通字符。
-例如：
-($foo = 2; 
-echo "foo is $foo"; // 打印结果: foo is 2 
-echo 'foo is $foo'; // 打印结果: foo is $foo 
-echo "foo is $foo\n"; // 打印结果: foo is 2 (同时换行) 
-echo 'foo is $foo\n'; // 打印结果: foo is $foo\n)
+* 单双引号的区别
+* 双引号串中的内容可以被解释而且替换，而单引号串中的内容总被认为是普通字符。
+* 例如：
+> $foo = 2; 
+> echo "foo is $foo"; // 打印结果: foo is 2 
+> echo 'foo is $foo'; // 打印结果: foo is $foo
+> echo "foo is $foo\n"; // 打印结果: foo is 2 (同时换行) 
+> echo 'foo is $foo\n'; // 打印结果: foo is $foo\n)
 
 php的变量类型 有八个 三大类型
 一 标准类型
