@@ -52,17 +52,35 @@ echo<?php code ?>
 
 
 ## 数组和js数组的区别
-数组和json 合在一起
-索引数组
-array('name','name1')
-混合数组
-array('name','name1','arg'=>'20')
-array('name'=>'user1','age'=>'20','age'=>'boy')
-例如 echo ‘<h1>my name is {$arr['name']},my age is {$ar['age']....}’
 
-对象 注意要先有类在new对象
-对象连接（->）连接
-对象定义和输出
+* 数组和json 合在一起
+* 索引数组
+```
+array('name','name1')
+```
+
+* 混合数组
+```
+array('name','name1','arg'=>'20')
+```
+
+```
+array('name'=>'user1','age'=>'20','age'=>'boy')
+```
+
+``` 例如
+echo ‘<h1>my name is {$arr['name']},my age is {$ar['age']....}’
+```
+
+## 对象定义
+
+* 注意要先有类在new对象
+
+* 对象连接（->）连接
+
+* 对象定义和输出
+
+```php对象的定义
 class Person{
   public $name ='user'
   public $age ='20'
@@ -73,6 +91,7 @@ class Person{
 }
 $a = new Person()
 echo $a->age = 20
+```
 
 ## 变量输出
 
