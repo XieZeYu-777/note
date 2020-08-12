@@ -1,3 +1,3 @@
 ```html
-<h1>note</p>
+<h1>note</h1>
 ```
