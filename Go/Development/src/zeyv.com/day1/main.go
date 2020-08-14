@@ -1,7 +1,9 @@
 package main
 
 // 导入包名
-import "fmt"
+import (
+	"fmt"
+)
 
 // 变量和常量
 
@@ -19,6 +21,8 @@ import "fmt"
 
 type FunMain func (int int) int
 
+
+
 // 例子1
 //func foo() (int, string) {
 //	return 11, "22"
@@ -29,6 +33,7 @@ type FunMain func (int int) int
 // b := 1
 // a = b 变量类型不同不能赋值
 func main() {
+	//importStruct.TestStruct()
 	// 匿名变量_下划线 用于处理函数返回多个 你只想用一个用来占位 不会占用内存 如 例子1
 	//x, _ := foo()
 	//_, y := foo()
