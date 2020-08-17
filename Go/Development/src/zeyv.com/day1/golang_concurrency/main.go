@@ -71,7 +71,6 @@ func Send () {
 	chanInt <- 3
 	time.Sleep(time.Second * 2)
 	timeout <- true
-
 }
 
 // 接收数据
