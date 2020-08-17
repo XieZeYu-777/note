@@ -55,8 +55,9 @@ func Read () {
 func Write () {
 	for i := 0; i < 3; i++  {
 		fmt.Println("移出", i)
+		// 执行太快加延迟
 		time.Sleep(time.Second * 4)
-		// 完成添加记录 并移除
+		// 写入数据添加记录 并移除
 		WG.Done()
 	}
 }
