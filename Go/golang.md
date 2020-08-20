@@ -574,6 +574,13 @@ func main () {
  a.connect()
 }
 
+
+### go mod(modules)
++ 开启modules和gopoxy设置
+    + go env -w GO111MODULE=on
+    + go env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct
+
+
 ### 内存缓存
 
 ### 导包需要再看下 package xx
