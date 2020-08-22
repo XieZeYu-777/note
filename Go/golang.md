@@ -580,7 +580,18 @@ func main () {
     + go env -w GO111MODULE=on
     + go env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 
+### golang框架
 
+* 先go get 框架地址
+
+* 然后在go mod init go框架
+
+* 再go mod edit -require 框架github地址
 ### 内存缓存
 
 ### 导包需要再看下 package xx
+
+
+### mysql
+
+* test

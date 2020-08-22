@@ -1,11 +1,11 @@
-## web前端学习路线
+## web前端学习路线 Love And Peace
 
 ### 认识什么是web前端
 
 ### 选择编辑器如vscode,webstorm,sublime等看个人习惯
 
 ### 学习运用git工具 代码管理
-
+## 网页布局基础
 ### 学习运用html
 + 语法
 + 标签
@@ -15,7 +15,7 @@
 + flex布局（自适应
 
 ### 运用自己学习的知识（html、css）仿写一个网站 什么都行 只写页面不用写交互效果（交互效果轮播图
-
+## 逻辑基础
 ### 学习运行js逻辑
 + 变量
 + 判断 
@@ -36,7 +36,7 @@
 + ES5
 + ES6
 
-### 学习一个web前端框架
+### 前端主流技术框架
 + 如vue、uniapp、react等
 
 ### 学习运行ui框架
@@ -45,8 +45,8 @@
 ### 运用自己学习的知识（html、css、js）仿写一个商城带有交互效果的 
 
 
-
-
+### 学习路线
+![Image text](https://pic1.zhimg.com/v2-54b23630f61e3f19acbe7089c8ccb1bf_r.jpg?source=1940ef5c)
 
 
 

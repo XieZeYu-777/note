@@ -34,13 +34,40 @@ func main()  {
 	//go Receive()
 	//// 延迟执行
 	//time.Sleep(time.Second * 60)
-	Read()
-	go Write()
-	WG.Wait()
+	//Read()
+	//go Write()
+	//WG.Wait()
+
+	//for i := 0; i < 10; i++ {
+	//	go PrintTime()
+	//}
+	//time.Sleep(time.Second * 1)
+	//fmt.Println("main")
 	// todo 协程同步 用到golang的系统包sync.waitgroup
 	// todo Add(delta int) 添加协程记录
 	// todo Done() 移出协程记录
 	// todo Wait() 同步等待所有记录的协程全部结束
+
+
+	// 协程同步
+	channels := make([]chan bool,10)
+	for i:=0;i<10 ;i++  {
+		channels[i]=make(chan bool)
+		go Sum(i,i,channels[i])
+	}
+	for _,v := range channels {
+		<-v
+	}
+}
+func Sum (var1, var2 int, chans chan bool) {
+	z := var1 + var2
+	fmt.Println(z)
+	chans <- true
+}
+
+
+func PrintTime () {
+	fmt.Println(time.Now())
 }
 
 // 读取数据
