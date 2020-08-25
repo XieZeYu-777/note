@@ -54,18 +54,18 @@ func main () {}`
 - _下划线用处 一个函数返回多个值 但你只想用一个 在go的机制里 每个返回值和变量都要用到 要不就报错 这时_下划线的作用就来的 占位
 案例如下
 
-` golang
-func foo () (int, string) {
-    return 1, '字符串'
-}
-func main () {
-    a,_ := foo(); // 1
-    _,b := foo(); // 字符串
-}
-`
+```gotemplate
+    func foo () (int, string) {
+        return 1, '字符串'
+    }
+    func main () {
+        a,_ := foo(); // 1
+        _,b := foo(); // 字符串
+    }
+```
 - 变量和常量批量创建 如下
 
-`
+```gotemplate
     var (
         a = 1 // go的变量机制 如果有未定义的变量默认上一个变量的值
         b // 1
@@ -96,7 +96,7 @@ func main () {
         z3 = iota // 2
     )
 
-`
+```
 
 - 测试文件声明 commodityList_test.go  只要带着_test后缀就是测试文件
 
@@ -104,27 +104,27 @@ func main () {
 
 - if 判断流 if支持在条件里声明变量 如下
 
-`
-    基础if
+```gotemplate
+    // 基础if
     a := 1 
     if a == 1 {
         // true
     } else {
 
     }
-    //if支持在条件里声明变量 
+    // if支持在条件里声明变量 
 
     if a := 1; a == 1 {
         code
     }
 
-`
+```
 
 ### for 循环
 
 - 案例1
 
-`
+```gotemplate
     // 基础用法
     for a := 0; a < 10; a++ {
         code
@@ -144,7 +144,7 @@ func main () {
     }
     // range 类似其他语言的forEach 获取他的index 和 value 如下
 
-`
+```
 
 ### break和continue 
 
@@ -176,12 +176,12 @@ fmt.Println(mapData) // ["name":"zeyv"]
 
 - 示例 计算函数运行时间 用到了time的 Now()和Sub()
 
-`
+```gotemplate
     start := time.Now()
     test()
     end := time.Now()
     times := end.Sub(start)
-`
+```
 
 ### os库
 
@@ -231,7 +231,7 @@ fmt.Println(mapData) // ["name":"zeyv"]
 golang 特点不需要break来表示结束
 如果在执行完每个分支的代码还想继续执行的话用fallthrough
 
- ```
+ ```gotemplate
    // 例子一
     var a int = 1
 	switch a {
@@ -262,7 +262,6 @@ golang 特点不需要break来表示结束
 	}
 
    // 输出b4
-
 ```
 
 ### fmt库 输出 log
@@ -271,28 +270,25 @@ golang 特点不需要break来表示结束
 
 - Scanf 阻塞等待用户输入 如下
 
-```
+```gotemplate
     var a int 
-
     fmt.Scanf("%d\n", &a) //说明当检测到\n回车后，解析输入的格式化内容
 ```
 
 
 ### func 函数
  
-- `
+ ```gotemplate
     // 函数命名方式在golang里是驼峰式开头小写 开头大写则可以在包外引入使用
     func main () {
 
     }
-
-`
+```
 - 多个返回值de时候要加() 类似(int,int)
 
 - 可以传递函数 类似 callback(1,add)
 
-```
-
+```gotemplate
 func main () {
     callback(1, add)
 }
@@ -308,7 +304,7 @@ func callback (y int, f (int, int)) {
 
 - 闭包
 
-```
+```gotemplate
 
 func main () {
     // 用法一
@@ -357,18 +353,18 @@ fmt.Printf("times = %d\n", times) // 执行的时间
 
 - 案例一
 
-`
+```gotemplate
     func test1 () {
         for i := 0; i < 5; i++ {
             defer fmt.Printf(i) // 4 3 2 1 0
         }
     }
 
-`
+```
 
 - 案例二
 
-```
+```gotemplate
     # 关闭文件流
     defer file.Close()
 
@@ -392,7 +388,7 @@ fmt.Printf("times = %d\n", times) // 执行的时间
 
 
 
-```
+```gotemplate
     a := []int {1,2,3}
     b := a[1,2]
 
@@ -403,10 +399,9 @@ fmt.Printf("times = %d\n", times) // 执行的时间
 ### make 创建切片
 
 - make([]type, len, cap) // cap可选参数
-```
 
+```gotemplate
     a := make([]int, 10, 20) // len 10 cap 20
-
 ```
 
 ### new() 和 make() 的区别 7.2.4
@@ -425,9 +420,10 @@ fmt.Printf("times = %d\n", times) // 执行的时间
 
 - 案例如下
 # 注意事项 
-不能获取到常量和字面量的地址 (const 数字11)
-带类型的要加* 如 var a *string
-```
+- 不能获取到常量和字面量的地址 (const 数字11)
+- 带类型的要加* 如 var a *string
+
+```gotemplate
     s := 'sdsdsd'
 
     var a *string = &s //取s的当前内存地址
@@ -456,11 +452,11 @@ fmt.Printf("times = %d\n", times) // 执行的时间
         fmt.Println(a, b, *a, "修改") // 0xc000010110 1 2 修改
         return *a + b
     }
-
 ```
 ### go 结构体 
 
 - 声明 
+```gotemplate
 type person struct {
     Name string
     Age int
@@ -475,9 +471,10 @@ func main () {
     }
     a.Name = 'zeyv' // go修改结构体不用加*获取指针就能获取到值
 }
+```
 
 - 匿名结构体 
-
+```gotemplate
 func main () {
     a:=&struct {
         Name string
@@ -487,9 +484,10 @@ func main () {
         Age: 22
     }
 }
+```
 
 - 结构体里面包含匿名结构体 怎么初始化
-
+```gotemplate
 type persong struct {
     Name string
     Age int
@@ -505,8 +503,10 @@ func main () {
     a.Contat.Phone = 1111
     a.Contat.City = 1111
 }
+```
 
 - 结构体 匿名字段
+```gotemplate
 type persong struct {
      string
      int
@@ -515,11 +515,13 @@ func main () {
     // 初始化
     a:=&persong {'11',22} 
 }
+```
 
 - go不存在继承 有组成
 
 - 组成 结构体
 
+```gotemplate
 type test1 struct {
     Sex int
 }
@@ -544,14 +546,16 @@ func main () {
         test1 包含Sex test2 也有Sex这个属性
     }
 }
+```
 
 
 ### goto
 
 
-###　接口　ｉｎｔｅｒｆａｃｅ
+### 接口interface
 
-* type name interface {
+```gotemplate
+ type name interface {
     Name () string
     connect()
 }
@@ -573,8 +577,7 @@ func main () {
  a := name{"11"}
  a.connect()
 }
-
-
+```
 ### go mod(modules)
 + 开启modules和gopoxy设置
     + go env -w GO111MODULE=on
