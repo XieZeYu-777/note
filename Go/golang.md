@@ -594,6 +594,43 @@ func main () {
 
 ### 导包需要再看下 package xx
 
+### beego框架知识点
+
+- 根据bee工具 初始化beego项目 go get github.com/astaxie/bee 然后bee new 项目名称 运行用 bee run
+
+- 获取conf里的配置信息 bee.AppConfig.string("参数名")  bee.AppConfig.string string是获取类型如果是int就用int()
+
+- 获取conf里的配置信息 也可以用beego自带的默认参数的形式获取 如下
+
+- beego模板使用 tpl 如下案例
+
+```gotemplate
+//  嵌套输出 用with关键字
+<div>
+    {{.User.name}}{{.User.Age}}{{.User.Sex}} // User这个字段用了3次 为了解决咱们用with关键字
+</div>
+<div>
+    {{with User}}
+    {{.name}}{{.Age}}{{.Sex}}
+    {{end}}
+</div>
+
+
+// 循环输出 用range
+<div>
+    {{/*Nums的数据结构是[1,2,3,4,5,6,7]*/}}
+    {{range Nums}}
+    {{.}}
+    {{end}}
+</div>
+```
+
+```gotemplate
+beego.AppName beego.HttpPort // int类型的httpPort beego.RunMode
+```  
+
+- beego日志级别 
+
 
 ### mysql
 
