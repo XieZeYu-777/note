@@ -597,7 +597,8 @@ func main () {
 ### beego框架知识点
 
 - 根据bee工具 初始化beego项目 go get github.com/astaxie/bee 然后bee new 项目名称 运行用 bee run
-
+- 注册路由  beego.Router(路径, 指针结构如 &models.Home{})
+- 
 - 获取conf里的配置信息 bee.AppConfig.string("参数名")  bee.AppConfig.string string是获取类型如果是int就用int()
 
 - 获取conf里的配置信息 也可以用beego自带的默认参数的形式获取 如下
@@ -623,13 +624,40 @@ func main () {
     {{.}}
     {{end}}
 </div>
+
+// 模板函数 
+// 模板变量
+{{$tplVar := .TplVar}}
+{{$tplVar}}
+// 输出html
+{{str2html .Html}}   
+// html 编码的形式显示
+{{.Pipe | htmlquote}}
+// 模板嵌套 复用同样的组件
+
+// 定义这是
+{{define "test"}}
+<div>
+this is template
+</div>
+{{end}}
+// 用的时候直接如下
+{{template "test"}}
+// 如果模板里有逻辑操作后面再加一个点 如下
+{{template "test" .}}
 ```
 
 ```gotemplate
+// 默认golang conf参数名
 beego.AppName beego.HttpPort // int类型的httpPort beego.RunMode
 ```  
+- 重定向 this.Redirect(url,code码)
+- 设置cookie  this.ctx.setCookie(cookiename,cookievalue,存储时间,url地址 ) 存储时间清空的话设置-1
+- 提取cookie  this.ctx.Request.Cookie(cookiename)
 
 - beego日志级别 
+
+- orm使用 创建数据表等
 
 
 ### mysql
