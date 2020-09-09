@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Document</title>
 </head>
 <body>
     <h1>
         登录
     </h1>
+    <form method="post" action="/login">
+        <div>
+            <input type="text" name="unames">
+        </div>
+        <div>
+            <input type="text" name="pass">
+        </div>
+        <div>
+            <input type="checkbox" name="authLogin"/> 选我
+        </div>
+        <button>登录</button>
+    </form>
 </body>
 </html>
