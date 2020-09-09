@@ -605,6 +605,12 @@ func main () {
 
 - beego模板使用 tpl 如下案例
 
+- 注册结构体 orm.RegisterModel(new(结构体名称), ...)
+	
+- 注册驱动 orm.RegisterDriver(驱动名称,orm.DRSqlite)
+	
+- todo  orm.RegisterDataBase("default", 驱动名称,数据库名称, 10) 连接数据库 数据库名称 驱动名称 数据库的路径 最大连接数
+
 ```gotemplate
 //  嵌套输出 用with关键字
 <div>
@@ -613,7 +619,7 @@ func main () {
 <div>
     {{with User}}
     {{.name}}{{.Age}}{{.Sex}}
-    {{end}}
+    {{end}}结构图 
 </div>
 
 
