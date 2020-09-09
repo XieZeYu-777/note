@@ -664,8 +664,14 @@ beego.AppName beego.HttpPort // int类型的httpPort beego.RunMode
 - beego日志级别 
 
 - orm使用 创建数据表等
-
+```
+orm.Debug = true // 开启 ORM 调试模式
+orm.RunSyncdb("default", false, true) // todo 自动建表 数据库名称 是否一直重新建表 是否打印相关信息 开发默认都是true
+o := orm.NewOrm() // 创建orm数据库
+o.orm.Insert() // 插入
+o.orm.Delete() // 删除
+```
 
 ### mysql
 
-* test
+* mysql
