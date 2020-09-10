@@ -18,7 +18,7 @@ func (c *HomeController) Get() {
 	c.Data["IsBool"] = false
 	var Nums = []int {1,2,3}
 	c.Data["Nums"] = Nums
-	c.Data["IsLogin"] = ExitWith(c.Ctx)
+	c.Data["IsLogin"] = IfLogin(c.Ctx)
 	c.TplName = "index.tpl"
 	// 结构体
 	u := User{Name:"Yo",Age:10}

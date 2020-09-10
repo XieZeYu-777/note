@@ -81,11 +81,22 @@
   <h1>login is {{.IsLogin}}</h1>
 
   {{if .IsLogin}}
-  <a href="/login?exits=true">退出</a>
+  <a href="/login?exit=true">退出</a>
   {{else}}
   <a href="/login">登录</a>
   {{end}}
   <h1 class="logo">Welcome to Beego</h1>
+  <ul>
+    <li>
+      <a href="/category">添加class</a>
+    </li>
+{{/*    <li>*/}}
+{{/*      <a href="/addClass"></a>*/}}
+{{/*    </li>*/}}
+{{/*    <li>*/}}
+{{/*      <a href="/addClass"></a>*/}}
+{{/*    </li>*/}}
+  </ul>
   <div class="description">
     Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
   </div>

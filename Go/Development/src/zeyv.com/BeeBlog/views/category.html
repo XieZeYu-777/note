@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>
+    添加分类Class
+</h1>
+<form method="GET" action="/category">
+    <div>
+        <div>
+            <input type="text" name="name" id="name"/>
+        </div>
+        <input type="hidden" name="op" value="add">
+        <button type="submit" onclick="return checkInput()">添加分类</button>
+    </div>
+
+    <div>
+        <ul>
+            {{range .Categories}}
+                <li>
+                    Title-{{.Title}}
+                    Id-{{.Id}}
+                    <a href="/category?op=del&id={{.Id}}">删除</a>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</form>
+
+</body>
+</html>
+<script>
+    var name = document.getElementById("name")
+    function checkInput() {
+        if (name.value.length == 0)  {
+            alert('请输入classname')
+            return false
+        }
+        return true
+    }
+</script>

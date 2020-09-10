@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"path"
 	"time"
 	"os"
@@ -55,3 +56,49 @@ func RegisterDB()  {
 	// todo 连接数据库 数据库名称 驱动名称 数据库的路径 最大连接数
 	orm.RegisterDataBase("default", _SQLITE3_DEIVER,_DB_NAME, 10)
 }
+
+// 添加class
+func AddCategory (name string) error {
+	o := orm.NewOrm()
+	cate := &Category{Title: name}
+	fmt.Println(cate, "one")
+	qs := o.QueryTable("category") // 查询这个数据表
+	err := qs.Filter("title",name).One(cate) // 查询数据库里有没有这个name
+	if err == nil {
+		return err
+	}
+	fmt.Println(cate, "Insert")
+	_, err = o.Insert(cate)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+// 获取classList
+func GetAllCategory () ([]*Category, error) {
+	o:=orm.NewOrm()
+	cates := make([]*Category, 0)
+	qs := o.QueryTable("category")
+	_,err := qs.All(&cates)
+	fmt.Println(cates, "cates")
+	return cates, err
+}
+//
+//func DelCategory(id string)  {
+//	o := orm.NewOrm()
+//	cate := &Category{Id: id}
+//	fmt.Println(cate, "one")
+//	qs := o.QueryTable("category") // 查询这个数据表
+//	err := qs.Filter("title",id).One(cate) // 查询数据库里有没有这个name
+//	if err == nil {
+//		return err
+//	}
+//	fmt.Println(cate, "Insert")
+//	_, err = o.Delete(cate)
+//	if err != nil {
+//		return err
+//	}
+//	return nil
+//}
+
+
