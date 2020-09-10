@@ -2,12 +2,12 @@ package models
 
 import (
 	"fmt"
-	"path"
-	"time"
-	"os"
-	"github.com/unknwon/com"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/unknwon/com"
+	"os"
+	"path"
+	"time"
 )
 
 // 数据库信息 驱动的名称
@@ -84,21 +84,15 @@ func GetAllCategory () ([]*Category, error) {
 	return cates, err
 }
 //
-//func DelCategory(id string)  {
-//	o := orm.NewOrm()
-//	cate := &Category{Id: id}
-//	fmt.Println(cate, "one")
-//	qs := o.QueryTable("category") // 查询这个数据表
-//	err := qs.Filter("title",id).One(cate) // 查询数据库里有没有这个name
-//	if err == nil {
-//		return err
-//	}
-//	fmt.Println(cate, "Insert")
-//	_, err = o.Delete(cate)
+//func DelCategory(id string) error {
+//	cid,err := strconv.ParseInt(id,10,64) // string转换成int60位十进制
 //	if err != nil {
 //		return err
 //	}
-//	return nil
+//	o := orm.NewOrm()
+//	cate := &Category{Id: cid}
+//	_,err=o.Delete(cate)
+//	return err
 //}
 
 

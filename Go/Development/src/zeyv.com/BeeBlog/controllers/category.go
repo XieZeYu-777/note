@@ -34,6 +34,12 @@ func (this *CategoryController) Get() {
 		//	beego.Error(err)
 		//}
 		//this.Redirect("/category", 301)
+		//return
+		//err := models.DelCategory(id)
+		//if err != nil {
+		//	beego.Error(err)
+		//}
+		//this.Redirect("/category", 301)
 	}
 	var err error
 	this.Data["Categories"],err = models.GetAllCategory()

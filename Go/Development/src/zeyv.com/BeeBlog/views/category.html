@@ -17,7 +17,8 @@
             <input type="text" name="name" id="name"/>
         </div>
         <input type="hidden" name="op" value="add">
-        <button type="submit" onclick="return checkInput()">添加分类</button>
+{{/*         onclick="return checkInput()"*/}}
+        <button type="submit">添加分类</button>
     </div>
 
     <div>
@@ -36,12 +37,12 @@
 </body>
 </html>
 <script>
-    var name = document.getElementById("name")
-    function checkInput() {
-        if (name.value.length == 0)  {
-            alert('请输入classname')
-            return false
-        }
-        return true
-    }
+    // var name = document.getElementById("name").value
+    // function checkInput() {
+    //     if (name.length == 0)  {
+    //         alert('请输入classname')
+    //         return false
+    //     }
+    //     return true
+    // }
 </script>

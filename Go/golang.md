@@ -668,8 +668,13 @@ beego.AppName beego.HttpPort // int类型的httpPort beego.RunMode
 orm.Debug = true // 开启 ORM 调试模式
 orm.RunSyncdb("default", false, true) // todo 自动建表 数据库名称 是否一直重新建表 是否打印相关信息 开发默认都是true
 o := orm.NewOrm() // 创建orm数据库
-o.orm.Insert() // 插入
-o.orm.Delete() // 删除
+o.Insert() // 插入
+o.Delete() // 删除
+o.Using(切换的数据库名称) // 切换的数据库 
+
+qs := o.QueryTable(表名) // 查询数据表
+qs.Filter("title",name).One(cate) // 查询数据库里有没有这个name 用来过滤查询结果，起到 包含条件 的作用 多个 Filter 之间使用 AND 连接
+strconv.ParseInt(id,10,64) // string转换成int60位十进制
 ```
 
 ### mysql
