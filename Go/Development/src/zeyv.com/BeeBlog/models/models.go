@@ -7,6 +7,7 @@ import (
 	"github.com/unknwon/com"
 	"os"
 	"path"
+	"strconv"
 	"time"
 )
 
@@ -83,16 +84,16 @@ func GetAllCategory () ([]*Category, error) {
 	fmt.Println(cates, "cates")
 	return cates, err
 }
-//
-//func DelCategory(id string) error {
-//	cid,err := strconv.ParseInt(id,10,64) // string转换成int60位十进制
-//	if err != nil {
-//		return err
-//	}
-//	o := orm.NewOrm()
-//	cate := &Category{Id: cid}
-//	_,err=o.Delete(cate)
-//	return err
-//}
+// del
+func DelCategory(id string) error {
+	cid,err := strconv.ParseInt(id,10,64) // string转换成int60位十进制
+	if err != nil {
+		return err
+	}
+	o := orm.NewOrm()
+	cate := &Category{Id: cid}
+	_,err=o.Delete(cate)
+	return err
+}
 
 

@@ -598,7 +598,7 @@ func main () {
 
 - 根据bee工具 初始化beego项目 go get github.com/astaxie/bee 然后bee new 项目名称 运行用 bee run
 - 注册路由  beego.Router(路径, 指针结构如 &models.Home{})
-- 
+
 - 获取conf里的配置信息 bee.AppConfig.string("参数名")  bee.AppConfig.string string是获取类型如果是int就用int()
 
 - 获取conf里的配置信息 也可以用beego自带的默认参数的形式获取 如下
@@ -665,16 +665,17 @@ beego.AppName beego.HttpPort // int类型的httpPort beego.RunMode
 
 - orm使用 创建数据表等
 ```
-orm.Debug = true // 开启 ORM 调试模式
-orm.RunSyncdb("default", false, true) // todo 自动建表 数据库名称 是否一直重新建表 是否打印相关信息 开发默认都是true
-o := orm.NewOrm() // 创建orm数据库
-o.Insert() // 插入
-o.Delete() // 删除
-o.Using(切换的数据库名称) // 切换的数据库 
-
-qs := o.QueryTable(表名) // 查询数据表
-qs.Filter("title",name).One(cate) // 查询数据库里有没有这个name 用来过滤查询结果，起到 包含条件 的作用 多个 Filter 之间使用 AND 连接
-strconv.ParseInt(id,10,64) // string转换成int60位十进制
+    orm.Debug = true // 开启 ORM 调试模式
+    orm.RunSyncdb("default", false, true) // todo 自动建表 数据库名称 是否一直重新建表 是否打印相关信息 开发默认都是true
+    o := orm.NewOrm() // 创建orm数据库
+    o.Insert() // 插入
+    o.Delete() // 删除
+    o.Using(切换的数据库名称) // 切换的数据库 
+    
+    qs := o.QueryTable(表名) // 查询数据表
+    qs.All(&data) // 返回对应结果集对象
+    qs.Filter("title",name).One(cate) // 查询数据库里有没有这个name 用来过滤查询结果，起到 包含条件 的作用 多个 Filter 之间使用 AND 连接
+    strconv.ParseInt(id,10,64) // string转换成int60位十进制
 ```
 
 ### mysql
