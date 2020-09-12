@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/unknwon/com"
@@ -58,42 +57,49 @@ func RegisterDB()  {
 	orm.RegisterDataBase("default", _SQLITE3_DEIVER,_DB_NAME, 10)
 }
 
-// 添加class
 func AddCategory (name string) error {
+	// orm连接建立
 	o := orm.NewOrm()
-	cate := &Category{Title: name}
-	fmt.Println(cate, "one")
-	qs := o.QueryTable("category") // 查询这个数据表
-	err := qs.Filter("title",name).One(cate) // 查询数据库里有没有这个name
-	if err == nil {
+	// 初始化结构体
+	cate := &Category{Title:name}
+	// 查询表category
+	qs := o.QueryTable("category")
+	// 查询这个表里是否有name这个
+	err := qs.Filter("title", name).One(cate)
+	if err ==  nil {
 		return err
 	}
-	fmt.Println(cate, "Insert")
-	_, err = o.Insert(cate)
+	_, err = o.Insert(cate) // 插入数据
 	if err != nil {
 		return err
 	}
 	return nil
 }
-// 获取classList
-func GetAllCategory () ([]*Category, error) {
-	o:=orm.NewOrm()
-	cates := make([]*Category, 0)
+
+// 返回所有分类
+func GetCategoryAll() ([] *Category, error)  {
+	// cates make下
+	cates := make([] *Category, 0)
+	o := orm.NewOrm()
 	qs := o.QueryTable("category")
-	_,err := qs.All(&cates)
-	fmt.Println(cates, "cates")
+	//传递指针数据
+	_, err := qs.All(&cates)
 	return cates, err
 }
-// del
+
+// 删除分类
 func DelCategory(id string) error {
-	cid,err := strconv.ParseInt(id,10,64) // string转换成int60位十进制
+	// string转int64
+	cid, err := strconv.ParseInt(id,10,64)
+	// 如果err ！= nil 报错
 	if err != nil {
-		return err
+		return  err
 	}
+	// 连接建立
 	o := orm.NewOrm()
+	// 初始化结构
 	cate := &Category{Id: cid}
-	_,err=o.Delete(cate)
+	// 删除该数据
+	_, err = o.Delete(cate)
 	return err
 }
-
-

@@ -11,6 +11,7 @@ type CategoryController struct {
 }
 
 func (this *CategoryController) Get() {
+	//this.Data["CategoryList"] =
 	op := this.Input().Get("op")
 	switch op {
 	case "add":
@@ -18,8 +19,8 @@ func (this *CategoryController) Get() {
 		if len(name) == 0 {
 			break
 		}
-		err := models.AddCategory(name)
-		if err != nil {
+ 		err := models.AddCategory(name)
+		if err == nil {
 			beego.Error(err)
 		}
 		this.Redirect("/category", 301)
@@ -36,11 +37,11 @@ func (this *CategoryController) Get() {
 		this.Redirect("/category", 301)
 		return
 	}
+	fmt.Println()
+	this.TplName = "category.html"
 	var err error
-	this.Data["Categories"],err = models.GetAllCategory()
-	fmt.Println(this.Data["Categories"], "Categories")
+	this.Data["CategoryList"], err = models.GetCategoryAll()
 	if err != nil {
 		beego.Error(err)
 	}
-	this.TplName = "category.html"
 }

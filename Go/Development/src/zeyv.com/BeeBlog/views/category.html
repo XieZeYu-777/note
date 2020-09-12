@@ -11,22 +11,23 @@
 <h1>
     添加分类Class
 </h1>
-<form method="GET" action="/category">
-    <div>
-        <div>
-            <input type="text" name="name" id="name"/>
-        </div>
-        <input type="hidden" name="op" value="add">
-{{/*         onclick="return checkInput()"*/}}
-        <button type="submit">添加分类</button>
-    </div>
 
+<form action="/category" method="GET">
+    <div>
+        <input type="text" name="name" />
+        <input type="hidden" name="op" value="add">
+        <button type="submit">添加</button>
+    </div>
     <div>
         <ul>
-            {{range .Categories}}
-                <li>
-                    Title-{{.Title}}
-                    Id-{{.Id}}
+            {{range .CategoryList}}
+                <li class="" style="display: flex">
+                    <p>
+                        {{.Title}}
+                    </p>
+                    <p>
+                        {{.Id}}
+                    </p>
                     <a href="/category?op=del&id={{.Id}}">删除</a>
                 </li>
             {{end}}
