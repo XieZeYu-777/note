@@ -99,7 +99,17 @@ func main () {}`
 ```
 
 - 测试文件声明 commodityList_test.go  只要带着_test后缀就是测试文件
+### sort包
 
+```cassandraql
+s3 := []int {1,2,0,4}
+
+	sort.Ints(s3)
+
+	fmt.Println(s3)
+// s3 = [0 1 2 4]
+
+```
 ### if
 
 - if 判断流 if支持在条件里声明变量 如下
